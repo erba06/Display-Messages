@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-//const db = require('../db/db-sql.js')
+
+const db = require('../db/db-sql.js')
 
 /** Get posts from DB **/
 router.get('/posts', (req, res, next) => {

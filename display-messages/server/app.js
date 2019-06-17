@@ -1,13 +1,10 @@
 const express = require('express')
+const path = require('path')
 const app = express()
-const postsRouter = require('./routes/posts.js')
 const bodyParser = require('body-parser')
-const port = process.env.PORT || console.info('missing PORT env variable -> fallback to 3001') || 3001
 
-// Middlewares
-
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', req.headers.origin)
@@ -17,14 +14,31 @@ app.use((req, res, next) => {
   next()
 })
 
+const postsRouter = require('./routes/posts.js')
+
+// const port = process.env.PORT || console.info('missing PORT env variable -> fallback to 3001') || 3001
+
+// Middlewares
 // Logger middleware
-app.use((req, res, next) => {
-  console.log(req.method, req.url)
-  next()
-})
+// app.use((req, res, next) => {
+//   console.log(req.method, req.url)
+//   next()
+// })
 
 app.get('/', (req, res) => {
   res.send('Vous êtes connecté au serveur ;-)')
+})
+
+app.get('/user/:id', (request, response) => {
+  response.send(`user #${request.params.id}`)
+})
+
+app.post('/', function (req, res) {
+  res.send('POST request to the homepage');
+});
+
+app.listen(3001, function () {
+  console.log('listening on 3001')
 })
 
 app.use('/', postsRouter)
@@ -45,8 +59,7 @@ app.use((err, req, res, next) => {
   next()
 })
 
-app.listen(port, () => {
-  console.log(`listening on port: ${port}`)
-})
-
+// app.listen(port, () => {
+//   console.log(`listening on port: ${port}`)
+// })
 module.exports = app

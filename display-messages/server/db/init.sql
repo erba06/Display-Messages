@@ -7,9 +7,9 @@ USE myDB;
 
 CREATE TABLE posts
 (
+    id INT PRIMARY KEY,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    userId INT
-    AUTO_INCREMENT,
-title TEXT,
-body TEXT
+    userId INT NOT NULL,
+    title TEXT,
+    body TEXT
 );

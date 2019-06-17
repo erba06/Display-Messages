@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise')
+const mysql = require('mysql2')
 
 const defaultUrl = 'mysql://root@localhost/myDB'
 
@@ -9,7 +9,6 @@ const url = process.env.DATABASE_URL || defaultUrl
 const pool = mysql.createPool(`${url}?waitForConnections=true&connectionLimit=10&queueLimit=0&namedPlaceholders=true`)
 
 // Utils
-
 const first = async q => (await q)[0]
 const exec = (query, params) => {
   console.log('SQL - ', { query, params })
@@ -26,7 +25,7 @@ const newPost = post => {
       (userId, title, body)
     VALUES
       (:userId, :title, :body)`,
-  post)
+    post)
 }
 
 module.exports = {
