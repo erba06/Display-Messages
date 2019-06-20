@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-const Post = ({ posts }) => {
+const Post = ({ posts, newPosts }) => {
+ 
   return (
     <div className='my-list container-fluid'>
       <h1 class='text-center default-text py-3'>My list</h1>

@@ -6,9 +6,11 @@
     "@reach/router": "^1.2.1",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "proxy": "http://localhost:3001/",
+    "mongoose": "^5.6.0",
     "mysql2-promise": "^0.1.4",
+    "proxy": "http://localhost:3001/",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -44,5 +46,10 @@
     "nodemon": "^1.19.1",
     "redux-devtools": "^3.5.0",
     "ws": "3.3.2"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
