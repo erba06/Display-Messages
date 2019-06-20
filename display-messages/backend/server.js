@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
+
 const postRoutes = express.Router()
 const PORT = 4000
 
@@ -26,24 +27,7 @@ postRoutes.route('/').get(function (req, res) {
         }
     })
 })
-// postRoutes.route('/:id').get(function (req, res) {
-//     let id = req.params.id
-//     Post.findById(id, function (err, post) {
-//         res.json(post)
-//     })
-// })
-// postRoutes.route('/update/:id').post(function (req, res) {
-//     Post.findById(req.params.id, function (err, post) {
-//         if (!post) { res.status(404).send('data is not found') } else { post.post_title = req.body.post_title }
-//         post.post_text = req.body.post_text
-//         post.save().then(post => {
-//             res.json('Post updated!')
-//         })
-//             .catch(err => {
-//                 res.status(400).send('Update not possible')
-//             })
-//     })
-// })
+
 postRoutes.route('/add').post(function (req, res) {
     let post = new Post(req.body)
     post.save()

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-const Post = ({ posts, newPosts }) => {
- 
+const Post = ({ posts }) => {
+ console.log(posts)
+
   return (
     <div className='my-list container-fluid'>
-      <h1 class='text-center default-text py-3'>My list</h1>
       <Link to='addpostform'><button class='btn btn-outline-primary'>Add a Post</button></Link>
       <ul>
         {posts.map((post) =>

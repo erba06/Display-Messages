@@ -10,18 +10,18 @@ import 'react-s-alert/dist/s-alert-default.css'
 import 'react-s-alert/dist/s-alert-css-effects/slide.css'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { store } from './redux';
 
 ReactDOM.render(
-  // <Provider store={store}>
-  <div>
-    <Router>
-      <App path='/*' />
-      <AddPostForm path='addpostform' />
-      <ListPage path='listpage' />
-    </Router>
-    <Alert stack={{ limit: 3 }} effect='slide' offset={30} />
-  </div>
-  // </Provider>
+  <Provider store={store}>
+    <div>
+      <Router>
+        <App path='/*' />
+        <AddPostForm path='addpostform' />
+        <ListPage path='listpage' />
+      </Router>
+      <Alert stack={{ limit: 3 }} effect='slide' offset={30} />
+    </div>
+  </Provider>
   , document.getElementById('root'))
 serviceWorker.unregister()
